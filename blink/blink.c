@@ -11,7 +11,7 @@ int main() {
 #warning blink example requires a board with a regular LED
 #else
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
-    uint led_array[] = {12, 17, 18, 19, 20, 21, 22, 26};
+    uint led_array[] = {16, 17, 18, 19, 20, 21, 22, 26};
     uint led_array_size = sizeof(led_array) / sizeof(led_array[0]);
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
