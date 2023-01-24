@@ -1,0 +1,44 @@
+\begin{document}
+
+In Project 06 you created a new CMake project, \texttt{fib_display}, and now
+we'd like to extract some of its functionality into a separate library that can
+be used in other projects.  This is a common pattern in software development,
+and indeed you did it yourself in Project 02 in the CircuitPython context.
+
+\begin{minipage}{0.8\textwidth}[t]
+    \raggedright
+    \emph{Languages don't matter. Concepts matter. When you learn a programming
+    concept, you can recognize it or its equivalent in any language.}
+\end{minipage}
+
+\section*{Before you begin\ldots}
+Keep the best practices in mind:
+\begin{enumerate}
+    \item Always open the top-level folder, the \texttt{pico-examples} folder,
+    with VSCode. Remember to use the \texttt{code .} command from the
+    Developers Console if your build setup requires it.
+    \item If it seems like your build process is messed up, do
+    \texttt{Ctrl+\langle comma\rangle} and check that settings \texttt{cmake.generator}
+    and \texttt{cmake.}
+\end{enumerate}
+
+\section*{Part A: Create the folder and \texttt{CMakeLists.txt}}
+
+% Let's go, Copilot!
+Create a new folder called \texttt{fib} in the \texttt{pico-examples} folder. Inside,
+create the header file \texttt{fib.h} and the source file \texttt{fib.c}.  In
+the same folder, create a new file called \texttt{CMakeLists.txt}. The \texttt{CMakeLists.txt}
+should look like this:
+
+\begin{lstlisting}[language=CMake]
+add_library(fib fib.c)
+# target_include_directories(fib PUBLIC .)
+target_link_libraries(fib pico_stdlib)
+pico_add_extra_outputs(fib)
+example_auto_set_url(fib)
+\end{lstlisting}
+
+Next, paste the \emph{declarations} from the \texttt{fib_display.h} file into
+the \texttt{fib.h} file.  You can delete them from the \texttt{fib_display.h} file.
+The \texttt{fib.h} file should look like this:
+\begin{lstlisting}[language=C]
