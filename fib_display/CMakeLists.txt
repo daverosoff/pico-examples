@@ -4,7 +4,7 @@ add_executable(fib_display
         )
 
 # pull in common dependencies
-target_link_libraries(fib_display pico_stdlib)
+target_link_libraries(fib_display pico_stdlib fib)
 
 # create map/bin/hex file etc.
 pico_add_extra_outputs(fib_display)

@@ -7,7 +7,13 @@
  * @licence     MIT
  *
  */
+
 #define _FIB_DISPLAY_MAIN_HEADER_
+void blinks(uint n);
+void print_value(int value, uint pins[], uint num_pins);
+void leave_value(int value, uint pins[], uint num_pins, uint delay);
+void flash_value(int value, uint pins[], uint num_pins, uint delay);
+
 #ifndef _FIB_DISPLAY_MAIN_HEADER_
 #define _FIB_DISPLAY_MAIN_HEADER_
 
@@ -32,9 +38,3 @@
 #include "hardware/uart.h"
 
 #endif // _FIB_DISPLAY_MAIN_HEADER_
-
-void print_value(int value, uint pins[], uint num_pins);
-
-void leave_value(int value, uint pins[], uint num_pins, uint delay);
-
-void flash_value(int value, uint pins[], uint num_pins, uint delay);

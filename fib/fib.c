@@ -5,10 +5,20 @@
  */
 
 #include "pico/stdlib.h"
+#include "fib.h"
 
 const uint LED_PIN = 20;
 const uint BOARD_LED = PICO_DEFAULT_LED_PIN;
-int fib(uint n) { // an iterative computation
+
+uint fib_helper(uint a, uint b, uint n) {
+    if (n == 0) {
+        return a;
+    } else {
+        return fib_helper(b, a + b, n - 1);
+    }
+}
+
+uint fib(uint n) { // an iterative computation
     int a = 0;
     int b = 1;
     for (int i = 0; i < n; i++) {
@@ -17,18 +27,6 @@ int fib(uint n) { // an iterative computation
         b = c;
     }
     return a;
-}
-
-void blinks(uint n) {
-    for (int i = 0; i < n; i++) {
-        gpio_put(LED_PIN, 1);
-        gpio_put(BOARD_LED, 1);
-        sleep_ms(250);
-        gpio_put(LED_PIN, 0);
-        gpio_put(BOARD_LED, 0);
-        sleep_ms(250);
-    }
-    sleep_ms(500);
 }
 
 int main() {

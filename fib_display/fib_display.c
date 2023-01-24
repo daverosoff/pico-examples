@@ -9,7 +9,7 @@
  */
 #include "pico/stdlib.h"
 #include "fib_display.h"
-#define DELAY 75
+#define DELAY 125
 
 void print_value(int value, uint pins[], uint num_pins) {
     // Only puts the value on the pins
@@ -33,6 +33,18 @@ void flash_value(int value, uint pins[], uint num_pins, uint delay) {
     sleep_ms(delay);
     print_value(0, pins, num_pins);
     sleep_ms(delay);
+}
+
+void blinks(uint n) {
+    for (int i = 0; i < n; i++) {
+        gpio_put(LED_PIN, 1);
+        gpio_put(BOARD_LED, 1);
+        sleep_ms(250);
+        gpio_put(LED_PIN, 0);
+        gpio_put(BOARD_LED, 0);
+        sleep_ms(250);
+    }
+    sleep_ms(500);
 }
 
 uint fib_helper(uint a, uint b, uint n) {
@@ -65,7 +77,12 @@ int main() {
     while (true) {
         uint f = fib(i++);
         if (f < 0x100) {
-            leave_value(f, pins, num_pins, 3 * DELAY);
+            if (f > 1) {
+                leave_value(f, pins, num_pins, 3 * DELAY);
+            }
+            else {
+                flash_value(f, pins, num_pins, 3 * DELAY / 2);
+            }
         }
         else {
             for (int count = 0; count < 1; count++) {
