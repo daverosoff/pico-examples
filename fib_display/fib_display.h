@@ -9,7 +9,7 @@
  */
 
 #define _FIB_DISPLAY_MAIN_HEADER_
-void blinks(uint n);
+void blinks(uint n, uint led_pins[], uint num_pins);
 void print_value(int value, uint pins[], uint num_pins);
 void leave_value(int value, uint pins[], uint num_pins, uint delay);
 void flash_value(int value, uint pins[], uint num_pins, uint delay);

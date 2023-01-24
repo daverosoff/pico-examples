@@ -1,4 +1,4 @@
-add_executable(fib_display
+add_library(fib_display
         fib_display.c
         fib_display.h
         )
@@ -7,7 +7,7 @@ add_executable(fib_display
 target_link_libraries(fib_display pico_stdlib fib)
 
 # create map/bin/hex file etc.
-pico_add_extra_outputs(fib_display)
+# pico_add_extra_outputs(fib_display)
 
 # add url via pico_set_program_url
 example_auto_set_url(fib_display)
