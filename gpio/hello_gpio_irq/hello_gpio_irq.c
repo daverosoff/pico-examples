@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
+#define EVENT_PIN 15
 
 static char event_str[128];
 
@@ -23,7 +24,7 @@ int main() {
     stdio_init_all();
 
     printf("Hello GPIO IRQ\n");
-    gpio_set_irq_enabled_with_callback(2, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &gpio_callback);
+    gpio_set_irq_enabled_with_callback(EVENT_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &gpio_callback);
 
     // Wait forever
     while (1);

@@ -3,7 +3,7 @@ add_executable(hello_gpio_irq
         )
 
 # pull in common dependencies
-target_link_libraries(hello_gpio_irq pico_stdlib)
+target_link_libraries(hello_gpio_irq pico_stdlib fib)
 
 # create map/bin/hex file etc.
 pico_add_extra_outputs(hello_gpio_irq)
