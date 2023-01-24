@@ -2,9 +2,6 @@ add_library(fib
         fib.c
         )
 
-# allow exporting from this library even though it is marked EXECUTABLE
-#set_property(TARGET PROPERTY ENABLE_EXPORTS TRUE)
-
 # pull in common dependencies
 target_link_libraries(fib pico_stdlib)
 
