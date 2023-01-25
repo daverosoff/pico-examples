@@ -5,3 +5,15 @@ cmake-*
 build
 .DS_Store
 *.pdf
+doc/*.aux
+doc/*.fls
+doc/*.fdb_latexmk
+doc/*.log
+doc/*.out
+doc/*.toc
+doc/*.bbl
+doc/*.blg
+doc/*.synctex.gz
+doc/*.pdf
+doc/*.dvi
+doc/*.ps
