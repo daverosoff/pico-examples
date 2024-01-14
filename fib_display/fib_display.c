@@ -10,6 +10,12 @@
 #include "pico/stdlib.h"
 #include "fib_display.h"
 #define DELAY 125
+#ifndef LED_PIN
+#define LED_PIN 15
+#endif
+#ifndef BOARD_LED
+#define BOARD_LED 25
+#endif
 
 void print_value(int value, uint pins[], uint num_pins) {
     // Only puts the value on the pins
